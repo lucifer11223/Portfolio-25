@@ -1,8 +1,10 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { motion } from "motion/react";
 
 const Navbar = () => {
+
+    const navigate = useNavigate();
     const [open, setOpen] = useState(false);
 
     return (
@@ -13,7 +15,7 @@ const Navbar = () => {
 
 
                     {/* Logo */}
-                    <h1 className='text-4xl font-bold'>𝕾</h1>
+                    <h1 onClick={() => navigate('/home')} className='text-4xl font-bold'>𝕾</h1>
 
                     {/* Desktop Menu */}
                     <div

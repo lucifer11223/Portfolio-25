@@ -9,7 +9,7 @@ import { motion } from "motion/react"
 
 
 const Footer = () => {
-    
+
 
     const [isPlaying, setIsPlaying] = useState(false);
     const audioRef = useRef(null);
@@ -75,7 +75,7 @@ const Footer = () => {
                         }}
                         onClick={toggleMusic}
                         src={musicImg} alt="Music" className="w-36 h-36 rounded-full object-cover" />
-                    <p className="text-gray-400 text-base mt-2">Click to Play</p>
+                    <p className="text-gray-400 text-base mt-2">{isPlaying ? "Playing.." : "Click to Play"}</p>
                 </div>
             </div>
             {/* Divider line */}

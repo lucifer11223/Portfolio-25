@@ -17,9 +17,8 @@ const Navbar = () => {
 
                     {/* Desktop Menu */}
                     <div
-                     className='absolute right-50 hidden md:flex items-center justify-between gap-16'>
-                        <p
-                            className="cursor-pointer hover:text-gray-400"
+                        className='absolute right-50 hidden md:flex items-center justify-between gap-16'>
+                        <Flip href='#work'
                             onClick={() => {
                                 document.getElementById("work")?.scrollIntoView({
                                     behavior: "smooth",
@@ -27,28 +26,30 @@ const Navbar = () => {
                             }}
                         >
                             [Work]
-                        </p>
+                        </Flip>
 
                         {/* About */}
-                        <Link to="/about">
-                            <p className="cursor-pointer hover:text-gray-400">[About]</p>
-                        </Link>
+                        <Flip href="/about">
+                            [About]
+                        </Flip>
 
                         {/* Contact */}
-                        <a
+                        <Flip
                             href="https://drive.google.com/file/d/FILE_ID/view?usp=sharing"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <p className="cursor-pointer hover:text-gray-400">[Resume]</p>
-                        </a>
+                            [Resume]
+                        </Flip>
 
-                        <button
-                        style={{
-                            padding:"5px 10px"
-                        }} className='ml-4 px-4 py-2 rounded-xl bg-[#444444] text-white font-bold'>
-                            Contact Me
-                        </button>
+                        <a href="mailto:1oshshank@gmail.com?subject=Hello%20Shshank&body=I%20would%20like%20to%20talk%20about...">
+                            <button
+                                style={{ padding: "5px 10px" }}
+                                className="ml-4 px-4 py-2 rounded-xl bg-[#444444] text-white font-bold"
+                            >
+                                Contact Me
+                            </button>
+                        </a>
                     </div>
 
                     {/* Mobile Menu Icon */}
@@ -73,8 +74,7 @@ const Navbar = () => {
     `}
                 >
                     <nav className="flex flex-col items-center justify-evenly h-full text-center">
-                        <p
-                            className="cursor-pointer hover:text-gray-400"
+                        <Flip href='#work'
                             onClick={() => {
                                 document.getElementById("work")?.scrollIntoView({
                                     behavior: "smooth",
@@ -82,19 +82,19 @@ const Navbar = () => {
                             }}
                         >
                             [Work]
-                        </p>
+                        </Flip>
 
-                        <Link to="/about">
-                            <p className="cursor-pointer hover:text-gray-400">[About]</p>
-                        </Link>
+                        <Flip to="/about">
+                            [About]
+                        </Flip>
 
-                        <a
+                        <Flip
                             href="https://drive.google.com/file/d/FILE_ID/view?usp=sharing"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <p className="cursor-pointer hover:text-gray-400">[Resume]</p>
-                        </a>
+                            [Resume]
+                        </Flip>
                     </nav>
                 </motion.div>
 
@@ -141,3 +141,57 @@ const MenuIcon = ({ open }) => {
 };
 
 export default Navbar;
+
+
+const Flip = ({ children, href = "#" }) => {
+    return (
+        <motion.a
+            href={href}
+            initial="initial"
+            whileHover="hovered"
+            className="relative inline-block overflow-hidden"
+        >
+            {/* Top layer */}
+            <div className="relative">
+                {children.split("").map((char, i) => (
+                    <motion.span
+                        key={i}
+                        className="inline-block"
+                        variants={{
+                            initial: { y: 0 },
+                            hovered: { y: "-100%" }
+                        }}
+                        transition={{
+                            duration: 0.25,
+                            ease: "easeInOut",
+                            delay: i * 0.03
+                        }}
+                    >
+                        {char}
+                    </motion.span>
+                ))}
+            </div>
+
+            {/* Bottom layer */}
+            <div className="absolute inset-0">
+                {children.split("").map((char, i) => (
+                    <motion.span
+                        key={i}
+                        className="inline-block"
+                        variants={{
+                            initial: { y: "100%" },
+                            hovered: { y: 0 }
+                        }}
+                        transition={{
+                            duration: 0.25,
+                            ease: "easeInOut",
+                            delay: i * 0.03
+                        }}
+                    >
+                        {char}
+                    </motion.span>
+                ))}
+            </div>
+        </motion.a>
+    );
+};

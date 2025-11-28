@@ -106,7 +106,7 @@ const Hero = () => {
                             ease: "linear",
                             repeat: Infinity,
                         }}
-                        className="hero-text md:text-[10rem] text-7xl font-bold absolute md:-top-96 -top-88 md:left-1/5 left-20 -translate-x-1/2"
+                        className="hero-text md:text-[10rem] text-7xl font-bold absolute md:-top-96 -top-88 md:left-1/5 left-20 -translate-x-1/2 select-none"
                         style={{
                             letterSpacing: "20px",
                         }}
@@ -140,7 +140,7 @@ const Hero = () => {
                             ease: "linear",
                             repeat: Infinity,
                         }}
-                        className="hero-text md:text-6xl text-4xl font-bold uppercase absolute md:-bottom-40  left-1/5 -translate-x-1/4"
+                        className="hero-text md:text-6xl text-4xl font-bold uppercase absolute md:-bottom-40  left-1/5 -translate-x-1/4 select-none"
                         style={{ letterSpacing: "15px" }}
                     >
                         i'm shshank
@@ -153,7 +153,7 @@ const Hero = () => {
                             initial={{ opacity: 0, x: 100 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.5 }}
-                            className='md:text-4xl text-3xl font-mono'>
+                            className='md:text-4xl text-3xl font-mono select-none'>
                             i'm <br />
                             shshank.<br /> A web Devloper with
                             both fronted and
@@ -171,7 +171,9 @@ const Hero = () => {
                             }}
                             className='w-60 bg-[#444444] text-white font-mono text-lg'
                         >
-                            Contact Me
+                            <a href="mailto:1oshshank@gmail.com?subject=Hello%20Shshank&body=I%20would%20like%20to%20talk%20about...">
+                                Contact Me
+                            </a>
                         </motion.button>
                         <motion.button
                             initial={{ opacity: 0, scaleY: 0 }}
@@ -182,7 +184,13 @@ const Hero = () => {
                             }}
                             className='bg-[#444444] text-white font-mono text-lg'
                         >
-                            Resume
+                            <a
+                                href="https://drive.google.com/file/d/FILE_ID/view?usp=sharing"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Resume
+                            </a>
                         </motion.button>
                     </div>
                 </div>

@@ -20,7 +20,7 @@ const CustomCursor = () => {
       yPercent: -50,
     });
 
-    // ✅ Correct quickTo usage
+
     const xTo = gsap.quickTo(cursor, "x", {
       duration: 0.2,
       ease: "power3.out",

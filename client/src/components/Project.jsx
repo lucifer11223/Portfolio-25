@@ -7,6 +7,7 @@ import ProjectCard from './ProjectCard';
 import blogImg from '../assets/blog.png'
 import chatImg from '../assets/chat.png'
 import calcImg from '../assets/calc.png'
+import deepSeekImg from '../assets/deepseek.png'
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -32,9 +33,9 @@ const Project = () => {
             image: calcImg,
         },
         {
-            name: "chat",
-            link: "https://chatapp-basic.netlify.app",
-            image: "https://via.placeholder.com/150",
+            name: "DeepSeek-Clone",
+            link: "https://deepseek-liart-seven.vercel.app/",
+            image: deepSeekImg,
         },
         {
             name: "chat",

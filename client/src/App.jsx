@@ -3,6 +3,7 @@ import Home from "./pages/Home"
 import About from "./pages/About"
 import Landing from "./pages/Landing";
 import CustomCursor from "./components/CustomCursor";
+import NotFound from "./pages/NotFound";
 
 
 const App = () => {
@@ -14,6 +15,8 @@ const App = () => {
         <Route path="/" element={<Landing />} />
         <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
+
+         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   )
